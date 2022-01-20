@@ -30,7 +30,8 @@
 - name: Ensure tzdata package is installed (Linux).
   package:
     name: "{{ ntp_tzdata_package }}"
-    state: present
+    state: latest
+    update_cache: yes
   when: ansible_system == "Linux"
 
 - name: Set timezone.
