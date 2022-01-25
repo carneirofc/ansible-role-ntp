@@ -22,9 +22,19 @@ tinker panic 0
 
 # Use public servers from the pool.ntp.org project.
 # Please consider joining the pool (http://www.pool.ntp.org/join.html).
+{% if ntp_pool is defined and ntp_pool is None %}
+
+{% for item in ntp_servers %}
+server {{ item }}
+{% endfor %}
+
+{% else %}
+
 {% for item in ntp_servers %}
 pool {{ item }}
 {% endfor %}
+
+{% endif %}
 
 # Permit time synchronization with our time source, but do not
 # permit the source to query or modify the service on this system.
