@@ -61,7 +61,7 @@ ntp_area: ''
 Set the [NTP Pool Area](http://support.ntp.org/bin/view/Servers/NTPPoolServers) to use. Defaults to none, which uses the worldwide pool.
 
 ```
-ntp_pool: None # ntp_servers entries as 'server' instead of 'pool' when this variable is None
+# ntp_pool: None # ntp_servers entries as 'server' instead of 'pool' when this variable is None
 
 ntp_servers:
   - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
